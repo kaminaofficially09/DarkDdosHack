@@ -10,7 +10,7 @@ else
 fi
 if [ ! -f go.mod ]; then
     echo "Initializing Go module..."
-    go mod init ranbal-telegram-bot
+    go mod init DarkDdosHack-telegram-bot
 else
     echo "Go module already initialized."
 fi
